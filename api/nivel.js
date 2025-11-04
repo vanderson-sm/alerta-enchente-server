@@ -11,10 +11,10 @@ let nivelAtual = 0;
 app.post("/api/nivel", (req, res) => {
     nivelAtual = req.body.nivel;
     console.log("Nível recebido:", nivelAtual);
-    res.json({ status: "ok", nivel: nivelAtual });
+    
 
     if (nivelAtual > 30){
-        res.json({ status: "ok", nivel: "alerta" });
+        res.json({ status: "ok", nivel: nivelAtual, alerta: "alerta!" });
     }
 
 
