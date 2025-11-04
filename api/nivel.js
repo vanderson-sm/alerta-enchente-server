@@ -16,9 +16,11 @@ app.post("/api/nivel", (req, res) => {
 
 // Rota para o app consultar o nível
 app.get("/api/nivel", (req, res) => {
-    //res.json({ nivel: nivelAtual });
+    
     if (nivelAtual > 30){
-        res.json({nivel: nivelAtual, alerta: "alerta!" });
+        res.json({nivel: nivelAtual, alerta: "1" });
+    }else{
+        res.json({ nivel: nivelAtual });
     }
 });
 
