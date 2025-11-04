@@ -11,20 +11,15 @@ let nivelAtual = 0;
 app.post("/api/nivel", (req, res) => {
     nivelAtual = req.body.nivel;
     console.log("Nível recebido:", nivelAtual);
-    
-
-    if (nivelAtual > 30){
-        res.json({ status: "ok", nivel: nivelAtual, alerta: "alerta!" });
-    }
-
-
-
-
+    res.json({ status: "ok", nivel: nivelAtual });
 });
 
 // Rota para o app consultar o nível
 app.get("/api/nivel", (req, res) => {
-    res.json({ nivel: nivelAtual });
+    //res.json({ nivel: nivelAtual });
+    if (nivelAtual > 30){
+        res.json({nivel: nivelAtual, alerta: "alerta!" });
+    }
 });
 
 // Exporta como handler para a Vercel
